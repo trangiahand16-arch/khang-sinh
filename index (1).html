@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 điều nhỏ giữ kháng sinh luôn hiệu quả</title>
+<meta property="og:title" content="5 điều nhỏ giữ kháng sinh luôn hiệu quả">
+<meta property="og:image" content="khang-sinh.jpg">
+<style>
+  html,body{margin:0;padding:0;background:#eef5fb;font-family:system-ui,Arial,sans-serif;}
+  .bar{position:sticky;top:0;z-index:1;display:flex;justify-content:center;gap:8px;padding:10px;background:#eef5fb;}
+  .bar button{padding:8px 18px;font-size:16px;border:2px solid #0b5aa6;border-radius:20px;background:#fff;color:#0b5aa6;cursor:pointer;}
+  .bar button.on{background:#0b5aa6;color:#fff;}
+  img{display:block;width:100%;max-width:1080px;height:auto;margin:0 auto;}
+</style>
+
+<!-- ============ CHỈ CẦN SỬA 1 DÒNG DƯỚI ĐÂY ============ -->
+<script>
+  var TEN_GOATCOUNTER = "khangsinh";   // Ví dụ: "duocsi-khangsinh"  (tên chị đặt khi đăng ký GoatCounter)
+</script>
+<!-- ===================================================== -->
+
+<script>
+  (function () {
+    if (!TEN_GOATCOUNTER) return;
+    var src = new URLSearchParams(location.search).get("src") || "chung";
+    window.goatcounter = { path: function () { return "/quet/" + src; }, title: "Quét QR: " + src };
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", "https://" + TEN_GOATCOUNTER + ".goatcounter.com/count");
+    document.head.appendChild(s);
+  })();
+</script>
+</head>
+<body>
+  <div class="bar">
+    <button id="b-vi" onclick="doi('vi')">Tiếng Việt</button>
+    <button id="b-en" onclick="doi('en')">English</button>
+  </div>
+  <img id="anh" src="khang-sinh.jpg" alt="5 điều nhỏ giữ kháng sinh luôn hiệu quả">
+<script>
+  var ANH = {
+    vi: { src: "khang-sinh.jpg",    alt: "5 điều nhỏ giữ kháng sinh luôn hiệu quả", lang: "vi" },
+    en: { src: "khang-sinh-en.jpg", alt: "5 small things to keep antibiotics effective", lang: "en" }
+  };
+  function doi(l) {
+    var a = ANH[l] || ANH.vi;
+    var img = document.getElementById("anh");
+    img.src = a.src; img.alt = a.alt; document.documentElement.lang = a.lang;
+    document.getElementById("b-vi").className = l === "en" ? "" : "on";
+    document.getElementById("b-en").className = l === "en" ? "on" : "";
+  }
+  // Mặc định tiếng Việt. Link có ?lang=en sẽ mở thẳng bản tiếng Anh.
+  doi(new URLSearchParams(location.search).get("lang") === "en" ? "en" : "vi");
+</script>
+</body>
+</html>
